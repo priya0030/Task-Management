@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:layout_alignParentTop="true">
+
+        <ImageView
+            android:layout_gravity="left"
+            android:id="@+id/btn_back"
+            android:padding="5dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="Add Task" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/back"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Task Title -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Task Title"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginBottom="4dp"/>
+
+            <EditText
+                android:id="@+id/edit_text_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter task title"
+                android:inputType="text"
+                android:padding="8dp"
+                android:textColorHint="@color/gray"
+                android:textColor="@color/black"
+                android:background="@android:drawable/editbox_background"/>
+
+            <!-- Task Description -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Task Description"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="4dp"/>
+
+            <EditText
+                android:id="@+id/edit_text_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter task description"
+                android:inputType="textMultiLine"
+                android:minLines="3"
+                android:padding="8dp"
+                android:textColorHint="@color/gray"
+                android:textColor="@color/black"
+                android:background="@android:drawable/editbox_background"/>
+
+            <!-- Due Date -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Due Date"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="4dp"/>
+
+            <EditText
+                android:id="@+id/edit_text_due_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Select due date"
+                android:focusable="false"
+                android:clickable="true"
+                android:textColorHint="@color/gray"
+                android:textColor="@color/black"
+                android:padding="8dp"
+                android:background="@android:drawable/editbox_background"/>
+
+            <!-- Task Priority -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Priority Level"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="4dp"/>
+
+            <Spinner
+                android:id="@+id/spinner_priority"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/bg"
+                android:background="@android:drawable/spinner_background"/>
+
+            <!-- Task Category -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Category"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="4dp"/>
+
+            <EditText
+                android:id="@+id/edit_text_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter category (e.g., Work, Personal)"
+                android:inputType="text"
+                android:textColorHint="@color/gray"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:background="@android:drawable/editbox_background"/>
+
+            <!-- Save Button -->
+            <Button
+                android:id="@+id/button_save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Save Task"
+                android:layout_marginTop="20dp"
+                android:paddingHorizontal="50dp"
+                android:layout_gravity="center_horizontal"
+                android:backgroundTint="@android:color/holo_blue_dark"
+                android:textColor="@android:color/white"/>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
+
