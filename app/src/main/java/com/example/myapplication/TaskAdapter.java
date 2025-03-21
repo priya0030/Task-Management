@@ -12,10 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.myapplication.R;
-import com.example.myapplication.Task;
-import com.example.myapplication.TaskViewModel;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -46,34 +42,28 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
         holder.textViewDueDate.setText("Due: " + currentTask.getDueDate());
         holder.textViewCategory.setText("Category: " + currentTask.getCategory());
 
-        // Change priority indicator color
         int priorityColor = getPriorityColor(currentTask.getPriority(), holder.itemView.getContext());
         holder.viewPriority.setBackgroundColor(priorityColor);
 
-        // Set checkbox state
         holder.checkBoxCompleted.setChecked(currentTask.isCompleted());
 
-        // Strike-through text if completed
         if (currentTask.isCompleted()) {
             holder.textViewTitle.setPaintFlags(holder.textViewTitle.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         } else {
             holder.textViewTitle.setPaintFlags(holder.textViewTitle.getPaintFlags() & (~Paint.STRIKE_THRU_TEXT_FLAG));
         }
 
-        // Handle checkbox click
         holder.checkBoxCompleted.setOnCheckedChangeListener((buttonView, isChecked) -> {
             currentTask.setCompleted(isChecked);
             taskViewModel.update(currentTask);
         });
 
-        // Handle task click for editing
         holder.itemView.setOnClickListener(v -> {
             if (listener != null) {
                 listener.onItemClick(currentTask);
             }
         });
 
-        // Handle long press to delete
         holder.itemView.setOnLongClickListener(v -> {
             taskViewModel.delete(currentTask);
             return true;

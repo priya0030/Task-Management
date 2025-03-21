@@ -21,7 +21,7 @@ public class AddTaskActivity extends AppCompatActivity {
     private Button buttonSave;
     private TaskViewModel taskViewModel;
 
-    private int taskId = -1; // Used for editing existing tasks
+    private int taskId = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,15 +39,14 @@ public class AddTaskActivity extends AppCompatActivity {
 
         ImageView back = findViewById(R.id.btn_back);
         back.setOnClickListener(v -> {
-            finish(); // Close AddTaskActivity and go back to MainActivity
+            finish();
         });
-        // Populate priority spinner
+
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.priority_levels, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         prioritySpinner.setAdapter(adapter);
 
-        // Set up date picker dialog for due date
         editTextDueDate.setOnClickListener(v -> {
             Calendar calendar = Calendar.getInstance();
             DatePickerDialog datePickerDialog = new DatePickerDialog(
@@ -63,7 +62,6 @@ public class AddTaskActivity extends AppCompatActivity {
             datePickerDialog.show();
         });
 
-        // Check if we are editing an existing task
         Intent intent = getIntent();
         if (intent.hasExtra("task_id")) {
             setTitle("Edit Task");
@@ -85,7 +83,7 @@ public class AddTaskActivity extends AppCompatActivity {
         String description = editTextDescription.getText().toString().trim();
         String dueDate = editTextDueDate.getText().toString().trim();
         String category = editTextCategory.getText().toString().trim();
-        int priority = prioritySpinner.getSelectedItemPosition() + 1; // Convert index to priority (1, 2, 3)
+        int priority = prioritySpinner.getSelectedItemPosition() + 1;
 
         if (title.isEmpty()) {
             Toast.makeText(this, "Saved", Toast.LENGTH_SHORT).show();

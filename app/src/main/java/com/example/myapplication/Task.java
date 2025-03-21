@@ -12,9 +12,9 @@ public class Task {
     private String description;
     private boolean isCompleted;
 
-    private int priority; // 1 - High, 2 - Medium, 3 - Low
-    private String dueDate; // Store as String for simplicity (yyyy-MM-dd format)
-    private String category; // Work, Personal, etc.
+    private int priority;
+    private String dueDate;
+    private String category;
 
     // Constructor
     public Task(String title, String description, int priority, String dueDate, String category, boolean isCompleted) {

@@ -43,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        // Handle task click for editing
         adapter.setOnItemClickListener(task -> {
             Intent intent = new Intent(MainActivity.this, AddTaskActivity.class);
             intent.putExtra("task_id", task.getId());
@@ -55,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        // Handle Category Filtering
         Spinner filterSpinner = findViewById(R.id.spinner_filter);
 
         filterSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
